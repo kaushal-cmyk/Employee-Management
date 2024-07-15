@@ -1,0 +1,7 @@
+﻿
+
+Make webapp to perform crud operations.
+=> connect to sql 
+=> use orm (entity core framework)
+=> design your forms
+=> 
