@@ -5,3 +5,10 @@ Make webapp to perform crud operations.
 => use orm (entity core framework)
 => design your forms
 => 
+
+=====
+=> learn view
+=> learn model 
+=> view model 
+=> view bag
+=> razor pages 
