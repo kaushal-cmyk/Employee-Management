@@ -8,21 +8,21 @@ namespace CrudOperation.Controllers
 {
 	public class EmployeesController : Controller
 	{
-        private readonly MVCDemoDbContext mvcDemoDbContext;
+		private readonly MVCDemoDbContext mvcDemoDbContext;
 
-        public EmployeesController(MVCDemoDbContext mvcDemoDbContext)
-        {
-            this.mvcDemoDbContext = mvcDemoDbContext;
-        }
+		public EmployeesController(MVCDemoDbContext mvcDemoDbContext)
+		{
+			this.mvcDemoDbContext = mvcDemoDbContext;
+		}
 
 		[HttpGet]
 		public async Task<IActionResult> Index()
 		{
-			var employees =  await mvcDemoDbContext.Employees.ToListAsync();
-			
+			var employees = await mvcDemoDbContext.Employees.ToListAsync();
+			return View(employees);
 		}
 
-        [HttpGet]
+		[HttpGet]
 		public IActionResult Add()
 		{
 			return View();
@@ -43,8 +43,7 @@ namespace CrudOperation.Controllers
 
 			await mvcDemoDbContext.Employees.AddAsync(employee);
 			await mvcDemoDbContext.SaveChangesAsync();
-			return RedirectToAction("ADD");
-
+			return RedirectToAction("Index");
 
 		}
 

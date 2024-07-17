@@ -10,7 +10,7 @@ namespace CrudOperation.Data
 		{
 		}
 
-        public DbSet<Employee> Employees { get; set; } // Table name Employees is created. 
+        public DbSet<Employee>Employees { get; set; } // Table name Employees is created. 
     }
 }
     
