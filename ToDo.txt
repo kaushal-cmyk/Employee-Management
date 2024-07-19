@@ -1,4 +1,5 @@
 ﻿
+=> finish tomorrow ... 
 
 Make webapp to perform crud operations.
 => connect to sql 
