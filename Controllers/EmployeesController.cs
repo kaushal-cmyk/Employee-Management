@@ -3,6 +3,7 @@ using CrudOperation.Models;
 using CrudOperation.Models.Domain;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Xml.Linq;
 
 namespace CrudOperation.Controllers
 {
@@ -47,5 +48,60 @@ namespace CrudOperation.Controllers
 
 		}
 
+		[HttpGet]
+		public async Task<IActionResult> View(Guid id)
+		{
+			var employee = await mvcDemoDbContext.Employees.FirstOrDefaultAsync(x => x.Id == id);
+
+			if (employee != null)
+			{
+				var viewModel = new UpdateEmployeeViewModel()
+				{
+					Id = employee.Id,
+					Name = employee.Name,
+					Email = employee.Email,
+					Salary = employee.Salary,
+					DateOfBirth = employee.DateOfBirth,
+					Department = employee.Department,
+				};
+				return await Task.Run(() => View("View", viewModel));
+			}
+			return RedirectToAction("Index");
+		}
+
+
+		[HttpPost]
+
+		public async Task<IActionResult> View(UpdateEmployeeViewModel updateEmployee)
+		{
+			var employee = await mvcDemoDbContext.Employees.FindAsync(updateEmployee.Id);
+
+			if (employee != null)
+			{
+				employee.Name = updateEmployee.Name;
+				employee.Email = updateEmployee.Email;
+				employee.Salary = updateEmployee.Salary;
+				employee.DateOfBirth = updateEmployee.DateOfBirth;
+				employee.Department = updateEmployee.Department;
+
+				await mvcDemoDbContext.SaveChangesAsync();
+				return RedirectToAction("Index");
+			}
+			return RedirectToAction("Index");
+		}
+
+		[HttpPost]
+		public async Task<IActionResult> Delete(UpdateEmployeeViewModel updateEmployee)
+		{
+			var employee = await mvcDemoDbContext.Employees.FindAsync(updateEmployee.Id);
+
+			if (employee != null)
+			{
+				mvcDemoDbContext.Employees.Remove(employee);
+				await mvcDemoDbContext.SaveChangesAsync();
+				return RedirectToAction("Index");
+			}
+			return RedirectToAction("Index");
+		}
 	}
 }
