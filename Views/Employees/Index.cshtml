@@ -3,6 +3,11 @@
 @{
 
 }
+<script>
+	function handleClick(employeeId) {
+		window.location.href = "/Employees/View/" + employeeId;
+	}
+</script>
 
 <h1>Employees</h1>
 
@@ -29,7 +34,12 @@
 				<td>@employee.Salary</td>
 				<td>@employee.DateOfBirth.ToString("dd-mm-yyyy")</td>
 				<td>@employee.Department</td>
-				<td><a href = "Employees/View/@employee.Id">View</a></td>
+				<td>
+					<a href="Employees/View/@employee.Id">View</a>
+					<button type = "button" class="btn btn-primary" onclick="handleClick(@employee.Id)">View</button>
+					<button type="submit" class="btn btn-danger" asp-action="Delete" asp-controller="Employee">Delete</button>
+				</td>
+
 			</tr>
 		}
 	</tbody>
