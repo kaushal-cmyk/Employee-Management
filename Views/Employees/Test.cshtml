@@ -1,0 +1,37 @@
+﻿@model CrudOperation.Models.AddressViewModel;
+
+@{
+    var Model = ViewData["viewModel"] as AddressViewModel;
+}
+
+<h1>@ViewData["Introduction"]</h1>
+@ViewData["Greetings"] World! <br />
+I am from @ViewData["Address"]. 
+
+<h2>Test</h2>
+<address>
+	@Model.Name<br />
+	@Model.City<br />
+	@Model.State<br />
+	@Model.PostalCode<br 
+</address>
+
+@*  <h2>Data from view</h2>
+ <table class="table">
+ 	<thead>
+ 		<tr>
+ 			<th>Name</th>
+ 			<th>City</th>
+ 			<th>State</th>
+ 			<th>PostalCode</th>
+ 		</tr
+ 	</thead>
+ 	<tbody>
+ 		<tr>
+ 			<td>@Model.Name</td>
+ 			<td>@Model.City</td>
+ 			<td>@Model.State</td>
+ 			<td>@Model.PostalCode</td>
+ 		</tr>
+ 	</tbody>
+ </table> *@

@@ -3,6 +3,7 @@ using CrudOperation.Models;
 using CrudOperation.Models.Domain;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Cryptography.X509Certificates;
 using System.Xml.Linq;
 
 namespace CrudOperation.Controllers
@@ -103,5 +104,40 @@ namespace CrudOperation.Controllers
 			}
 			return RedirectToAction("Index");
 		}
+
+		// this is test view.
+
+		[ViewData]
+		public string Introduction { get; set; }
+		public IActionResult Test()
+		{
+			Introduction = "Intro";
+			ViewData["Greetings"] = "Hello";
+			ViewData["Address"] = "Gorkha";
+
+			ViewData["viewModel"] = new AddressViewModel()
+			{
+				Name = "Kaushal",
+				City = "Lalitpur",
+				State = "Bagmati",
+				PostalCode = "12345",
+			};
+
+			//return View(viewModel);
+			return View();
+		}
+
+		//public  IActionResult SomeAction()
+		//{
+		//	ViewData["Greeting"] = "Hello";
+		//	ViewData["Address"] = new AddressViewModel()
+		//	{
+		//		Name = "Nitan Thapa",
+		//		City = "Kathmandu",
+		//		State = "Bagmati",
+		//		PostalCode = "55555"
+		//	};
+		//	return View();
+		//}
 	}
 }
