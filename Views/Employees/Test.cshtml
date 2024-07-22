@@ -16,7 +16,7 @@ I am from @ViewData["Address"].
 	@Model.PostalCode<br 
 </address>
 
-@*  <h2>Data from view</h2>
+ <h2>Data from view</h2>
  <table class="table">
  	<thead>
  		<tr>
@@ -33,5 +33,11 @@ I am from @ViewData["Address"].
  			<td>@Model.State</td>
  			<td>@Model.PostalCode</td>
  		</tr>
+         <tr>
+ 			<td>@ViewBag.viewModel1.Name</td>
+ 			<td>@ViewBag.viewModel1.City</td>
+ 			<td>@ViewBag.viewModel1.State</td>
+ 			<td>@ViewBag.viewModel1.PostalCode </td>
+ 		</tr>
  	</tbody>
- </table> *@
+ </table>

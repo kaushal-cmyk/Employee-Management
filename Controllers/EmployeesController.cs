@@ -123,6 +123,14 @@ namespace CrudOperation.Controllers
 				PostalCode = "12345",
 			};
 
+			ViewBag.viewmodel1 = new AddressViewModel()
+			{
+				Name = "Nitan thapa",
+				City = "GagalPhedi",
+				State = "...",
+				PostalCode = "234234",
+			};
+
 			//return View(viewModel);
 			return View();
 		}

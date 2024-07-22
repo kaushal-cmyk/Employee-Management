@@ -15,3 +15,7 @@ Make webapp to perform crud operations.
 => view bag 
 => razor pages 
 => learn about stored procedure. (database)
+
+
+=> learn webapi 
+=> perform crud operation using webapi.
