@@ -22,3 +22,5 @@ Make webapp to perform crud operations.
 
 => learn interface.
 => learn model binding.
+=> learn tag helpers.
+=> learn stored procedure.
